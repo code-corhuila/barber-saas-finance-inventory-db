@@ -1,1 +1,18 @@
-databaseChangeLog: []
+databaseChangeLog:
+  - changeSet:
+      id: ddl-tables-001
+      author: JUANDAX233
+      labels: "HU-FIN-001,ddl,tables"
+      comment: "finance_record: income and expenses; the amount is always positive and type gives the sign (DEC-FIN-01)."
+      changes:
+        - sqlFile:
+            path: 001_create_finance_record.sql
+            relativeToChangelogFile: true
+            splitStatements: false
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/001_create_finance_record.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: false
+            stripComments: false
