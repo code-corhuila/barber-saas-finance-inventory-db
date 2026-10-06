@@ -16,3 +16,20 @@ databaseChangeLog:
             relativeToChangelogFile: true
             splitStatements: false
             stripComments: false
+  - changeSet:
+      id: ddl-tables-002
+      author: JUANDAX233
+      labels: "HU-INV-001,ddl,tables"
+      comment: "inventory_product: stock as numeric(12,2), never negative; it only changes through movements (DEC-INV-01)."
+      changes:
+        - sqlFile:
+            path: 002_create_inventory_product.sql
+            relativeToChangelogFile: true
+            splitStatements: false
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/002_create_inventory_product.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: false
+            stripComments: false
