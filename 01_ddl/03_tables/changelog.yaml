@@ -33,3 +33,20 @@ databaseChangeLog:
             relativeToChangelogFile: true
             splitStatements: false
             stripComments: false
+  - changeSet:
+      id: ddl-tables-003
+      author: JUANDAX233
+      labels: "HU-INV-001,ddl,tables"
+      comment: "inventory_movement: the append-only trail of every stock change; it reaches the tenant through its product."
+      changes:
+        - sqlFile:
+            path: 003_create_inventory_movement.sql
+            relativeToChangelogFile: true
+            splitStatements: false
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/003_create_inventory_movement.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: false
+            stripComments: false
