@@ -1,1 +1,18 @@
-databaseChangeLog: []
+databaseChangeLog:
+  - changeSet:
+      id: ddl-schemas-001
+      author: JUANDAX233
+      labels: "HU-FIN-001,HU-INV-001,ddl,schemas"
+      comment: "The finance_inventory schema. Nothing of this domain lives in public (Annex J J.4)."
+      changes:
+        - sqlFile:
+            path: 001_create_schema_finance_inventory.sql
+            relativeToChangelogFile: true
+            splitStatements: false
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/01_schemas/001_create_schema_finance_inventory.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: false
+            stripComments: false
