@@ -1,0 +1,3 @@
+DROP INDEX IF EXISTS finance_inventory.idx_inventory_movement_product_created;
+DROP INDEX IF EXISTS finance_inventory.idx_inventory_product_barbershop_id;
+DROP INDEX IF EXISTS finance_inventory.idx_finance_record_barbershop_date;
