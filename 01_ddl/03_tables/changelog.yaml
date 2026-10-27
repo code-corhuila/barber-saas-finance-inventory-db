@@ -67,3 +67,20 @@ databaseChangeLog:
             relativeToChangelogFile: true
             splitStatements: false
             stripComments: false
+  - changeSet:
+      id: ddl-tables-005
+      author: Pipecerquera
+      labels: "HU-FIN-001,ddl,tables"
+      comment: "processed_event: an AppointmentCompleted delivered twice records its income once (ADR-016, DEC-FIN-03)."
+      changes:
+        - sqlFile:
+            path: 005_create_processed_event.sql
+            relativeToChangelogFile: true
+            splitStatements: false
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/03_tables/005_create_processed_event.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: false
+            stripComments: false
